@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="BudgetViewModel"
+            type="com.example.ngshuangyin_tp059869.budget.BudgetViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE3E1"
+    android:orientation="vertical"
+    tools:context=".BudgetFragment">
+
+    <TextView
+        android:id="@+id/tvBudgetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/andika"
+        android:text="My Budget"
+        android:textAlignment="center"
+        android:textColor="#FF9494"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <EditText
+        android:id="@+id/etvBudgetDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@={BudgetViewModel.inputBudgetDetails}"
+        android:hint="Enter Budget Details"
+        android:inputType="textMultiLine"
+        android:textColor="#FF9494" />
+
+    <EditText
+        android:id="@+id/etvBudgetAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@={BudgetViewModel.inputBudgetAmount}"
+        android:hint="Enter Amount (RM)"
+        android:inputType="textPersonName"
+        android:textColor="#FF9494" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={BudgetViewModel.btnSaveUpdateText}"
+            android:onClick="@{()->BudgetViewModel.saveOrUpdate()}"/>
+
+        <Button
+            android:id="@+id/btnClearDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={BudgetViewModel.btnClearDeleteText}"
+            android:onClick="@{()->BudgetViewModel.ClearOrDelete()}" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/budget_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+</LinearLayout>
+</layout>

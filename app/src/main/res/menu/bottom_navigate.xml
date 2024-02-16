@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="Checklist"
+        android:id="@+id/checklist"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"/>
+    <item android:title="Budget"
+        android:id="@+id/budget"
+        android:icon="@drawable/ic_baseline_calculate_24"/>
+    <item android:title="Guestlist"
+        android:id="@+id/guestlist"
+        android:icon="@drawable/ic_baseline_emoji_people_24"/>
+    <item android:title="Vendor"
+        android:id="@+id/vendor"
+        android:icon="@drawable/ic_baseline_people_alt_24"/>
+</menu>

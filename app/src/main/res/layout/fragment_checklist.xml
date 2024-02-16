@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ChecklistViewModel"
+            type="com.example.ngshuangyin_tp059869.checklist.ChecklistViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE3E1"
+    android:orientation="vertical"
+    tools:context=".ChecklistFragment">
+
+    <TextView
+        android:id="@+id/tvChecklistTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/andika"
+        android:text="My Checklist"
+        android:textAlignment="center"
+        android:textColor="#FF9494"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <EditText
+        android:id="@+id/etvChecklistTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@={ChecklistViewModel.inputTask}"
+        android:hint="Enter Task"
+        android:inputType="textMultiLine"
+        android:textColor="#FF9494" />
+
+    <EditText
+        android:id="@+id/etvChecklistDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@={ChecklistViewModel.inputDate}"
+        android:hint="Enter Date (dd/mm/yyyy)"
+        android:inputType="textPersonName"
+        android:textColor="#FF9494" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={ChecklistViewModel.btnSaveUpdateText}"
+            android:onClick="@{()->ChecklistViewModel.saveOrUpdate()}"/>
+
+        <Button
+            android:id="@+id/btnClearDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={ChecklistViewModel.btnClearDeleteText}"
+            android:onClick="@{()->ChecklistViewModel.ClearOrDelete()}" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/checklist_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+</LinearLayout>
+</layout>
